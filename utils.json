@@ -1,0 +1,29 @@
+{
+    "app_config": [
+        {
+            "name": "dio",
+            "language": "it",
+            "stop": "stop",
+            "version": "1.0.0",
+            "history_versions": [
+                "1.0.0 - First version"
+            ]
+        }
+    ],
+    "vocal_input": [
+        {
+            "play": "riproduci",
+            "say": "dici",
+            "current_time": "che ore sono",
+            "what_is": "cosa e",
+            "who_is": "chi e",
+            "tell_me": "dimmi"
+        }
+    ],
+    "vocal_output": [
+        {
+            "not_understood": "Non ho capito",
+            "ready_for_listening": "Dimmi tutto"
+        }
+    ]
+}
