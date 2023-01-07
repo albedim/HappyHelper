@@ -1,5 +1,6 @@
 import json
 import os
+import translators.server as ts
 import pywhatkit as kit
 
 
@@ -12,11 +13,19 @@ def play(title):
 
 
 def replaceChars(text: str):
-    return text.replace("è", "e")
+    return text.replace("e", "è")
 
 
 def getVocalCommands():
     return json.load(open('utils.json'))['vocal_input'][0]
+
+"""
+def translate(text):
+    try:
+        return ts.translate_text(text, from_language='en', to_language=getAppConfig()['language'])
+    except Exception:
+        return text
+"""
 
 
 def getVocalOutput():

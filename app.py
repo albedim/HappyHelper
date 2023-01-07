@@ -19,6 +19,7 @@ def do():
     print("Waiting for commands...")
     audio = listen()
     text = toText(audio)
+    print(text)
     getAction(text)
 
 

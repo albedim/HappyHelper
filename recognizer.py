@@ -1,6 +1,6 @@
 import speech_recognition as sr
 
-from system_iterator import replaceChars, getAppConfig
+from system_iterator import getAppConfig
 
 recognizer = sr.Recognizer()
 
@@ -8,7 +8,7 @@ recognizer = sr.Recognizer()
 def toText(audio):
     try:
         text = recognizer.recognize_google(audio, language=getAppConfig()['language'])
-        return replaceChars(text.lower())
+        return text.lower()
     except sr.RequestError as e:
         return 'Could not request results;' + e
     except sr.UnknownValueError:
