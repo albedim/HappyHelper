@@ -1,3 +1,4 @@
+import datetime
 import json
 import os
 import translators.server as ts
@@ -11,6 +12,9 @@ def destroyTasks():
 def play(title):
     kit.playonyt(title)
 
+
+def timer(time):
+    current_time = datetime.time.
 
 def replaceChars(text: str):
     return text.replace("e", "è")
