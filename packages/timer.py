@@ -23,4 +23,3 @@ def getLastTime(givenTime) -> str:
 
 async def timer(lastTime) -> None:
     await asyncio.run(os.system(f'cmd /k python ./packages/start_timer.py {lastTime}'))
-    playsound('assets/audio/alarm.mp3')
