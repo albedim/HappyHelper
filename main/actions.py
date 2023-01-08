@@ -17,9 +17,6 @@ def getAction(text) -> None:
         # Bad words checker
         if "*" in text:
             return say(getVocalOutput()['no_bad_words'])
-        # Hi
-        elif getVocalCommands()['hi'] in text:
-            return say(getVocalOutput()['hi'])
         # How are you
         elif getVocalCommands()['how_are_you'] in text or getVocalCommands()['how_are_you1'] in text:
             if random.randint(0, 100) > 50:
@@ -62,6 +59,9 @@ def getAction(text) -> None:
             content = subFirstWord(text, 4)
             language = subLastWord(text, 3, 4).replace(' ', '')
             return say(translate(content, language))
+        # Hi
+        elif getVocalCommands()['hi'] in text:
+            return say(getVocalOutput()['hi'])
         # Get tasks
         elif getVocalCommands()['tasks'] in text and (
                 getVocalCommands()['tell_me'] in text or getVocalCommands()['say'] in text):
