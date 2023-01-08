@@ -19,4 +19,4 @@ def getWordsNumber(text):
 
 
 def replaceChars(text: str):
-    return text.replace("e", "è")
+    return text.replace("Ã¨", "è")

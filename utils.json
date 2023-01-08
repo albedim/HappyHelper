@@ -1,39 +1,58 @@
 {
     "app_config": [
         {
-            "name": "ok",
+            "name": "marta",
             "language": "it",
             "stop": "stop",
-            "version": "1.1.5",
+            "version": "1.2.0",
             "history_versions": [
                 "1.0.0 - First version",
                 "1.0.5 - Time and date added",
                 "1.1.0 - Bug fixing",
-                "1.1.5 - Feature: Timer added"
+                "1.1.5 - Feature: Timer added",
+                "1.2.0 - Feature: Tasks added",
+                "1.2.5 - Feature: Hi/How are you added",
+                "1.3.0 - Feature: Bad words recognizer",
+                "1.3.5 - Better user experience. Better realism"
             ]
         }
     ],
     "vocal_input": [
         {
+            "add": "aggiungi",
+            "add1": "aggiungere",
+            "tasks": "promemoria",
+            "delete": "elimina",
+            "delete1": "cancella",
+            "hi": "ciao",
+            "how_are_you": "come stai",
+            "how_are_you1": "come va",
             "play": "riproduci",
             "request_timer": "timer",
             "thank_you": "grazie",
             "say": "dici",
-            "current_date": "che giorno e",
+            "current_date": "che giorno è",
             "current_time": "che ore sono",
-            "what_is": "cosa e",
-            "who_is": "chi e",
+            "what_is": "cosa è",
+            "who_is": "chi è",
             "tell_me": "dimmi"
         }
     ],
     "vocal_output": [
         {
             "time": "sono le",
-            "timer_finished": "il tuo timer e finito",
-            "you_are_welcome": "non preoccuparti. e il mio lavoro",
-            "date": "oggi, e",
-            "not_understood": "non ti ho capito",
-            "ready_for_listening": "ei! di cosa hai bisogno?"
+            "no_bad_words": "non parlarmi in questo modo",
+            "no_tasks_found": "non hai promemoria al momento",
+            "tasks_removed": "i tuoi promemoria sono stati cancellati con successo",
+            "hi": "ciao",
+            "im_fine1": "non c'è male, mi piace la mia vita",
+            "im_fine": "tutto bene, grazie per averlo chiesto!",
+            "task_added": "promemoria aggiunto con successo",
+            "timer_finished": "il tuo timer è finito",
+            "you_are_welcome": "non preoccuparti. è il mio lavoro",
+            "added_in": ", aggiunto il ",
+            "date": "oggi, è",
+            "not_understood": "non ti ho capito"
         }
     ]
 }

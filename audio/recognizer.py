@@ -20,5 +20,5 @@ def toText(audio):
 def listen() -> sr.AudioData:
     with sr.Microphone() as source:
         recognizer.adjust_for_ambient_noise(source, duration=0.2)
-        audio = recognizer.listen(source, phrase_time_limit=3)
+        audio = recognizer.listen(source, phrase_time_limit=5)
         return audio
