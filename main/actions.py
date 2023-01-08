@@ -57,6 +57,11 @@ def getAction(text) -> None:
             task = subFirstWord(text, 4)
             addTask(task)
             return say(getVocalOutput()['task_added'])
+        # Translate
+        elif getVocalCommands()['translate'] in text:
+            content = subFirstWord(text, 4)
+            language = subLastWord(text, 3, 4).replace(' ', '')
+            return say(translate(content, language))
         # Get tasks
         elif getVocalCommands()['tasks'] in text and (
                 getVocalCommands()['tell_me'] in text or getVocalCommands()['say'] in text):
