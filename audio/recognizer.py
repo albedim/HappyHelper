@@ -5,7 +5,7 @@ from main.system_iterator import getAppConfig
 recognizer = sr.Recognizer()
 
 
-def toText(audio):
+def toText(audio) -> str:
     try:
         text = recognizer.recognize_google(audio, language=getAppConfig()['language'])
         return text.lower()
@@ -20,5 +20,5 @@ def toText(audio):
 def listen() -> sr.AudioData:
     with sr.Microphone() as source:
         recognizer.adjust_for_ambient_noise(source, duration=0.2)
-        audio = recognizer.listen(source, phrase_time_limit=5)
+        audio = recognizer.listen(source, phrase_time_limit=getAppConfig()['time_to_speak'])
         return audio

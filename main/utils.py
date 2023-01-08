@@ -4,7 +4,7 @@ def getFirstWord(text):
 
 
 # Gets the content from a sentence
-def getContent(text, firstIndex):
+def subFirstWord(text, firstIndex) -> str:
     words = text.split(" ")
     content = ''
     counter = 0
@@ -14,9 +14,19 @@ def getContent(text, firstIndex):
     return content
 
 
-def getWordsNumber(text):
+def subLastWord(text, firstIndex, lastIndex) -> str:
+    words = text.split(" ")
+    content = ''
+    counter = 0
+    while counter < len(words):
+        content += words[counter] + " " if firstIndex <= counter < lastIndex else ''
+        counter += 1
+    return content
+
+
+def getWordsNumber(text) -> int:
     return len(text.split(" "))
 
 
-def replaceChars(text: str):
+def replaceChars(text: str) -> str:
     return text.replace("Ã¨", "è")

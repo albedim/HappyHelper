@@ -1,13 +1,14 @@
 import asyncio
-
+import os
 from datetime import datetime, timedelta
-from audio.extractor import say
-from main.system_iterator import getVocalOutput
+
+from playsound import playsound
+
 from main.utils import getFirstWord
 
 
 # Gets the last timer.py time
-def getLastTime(givenTime):
+def getLastTime(givenTime) -> str:
     currentTime = datetime.strptime(datetime.now().strftime("%H:%M:%S"), "%H:%M:%S")
     param = int(getFirstWord(givenTime))
     timerTime = None
@@ -20,8 +21,5 @@ def getLastTime(givenTime):
     return timerTime.time().strftime("%H:%M:%S")
 
 
-async def timer(lastTime):
-    while lastTime != datetime.now().strftime("%H:%M:%S"):
-        await asyncio.sleep(1)
-    for i in range(5):
-        say(getVocalOutput()['timer_finished'])
+async def timer(lastTime) -> None:
+    await asyncio.run(os.system(f'cmd /k python ./packages/start_timer.py {lastTime}'))

@@ -3,34 +3,25 @@ import os
 import pywhatkit as kit
 
 
-def destroyTasks():
+def destroyTasks() -> None:
     os.system("taskkill /im chrome.exe /f")
 
 
-def play(title):
+def play(title) -> None:
     kit.playonyt(title)
 
 
-def getVocalCommands():
+def getVocalCommands() -> list:
     return json.load(open('utils.json'))['vocal_input'][0]
 
 
-"""
-def translate(text):
-    try:
-        return ts.translate_text(text, from_language='en', to_language=getAppConfig()['language'])
-    except Exception:
-        return text
-"""
-
-
-def getVocalOutput():
+def getVocalOutput() -> list:
     return json.load(open('utils.json'))['vocal_output'][0]
 
 
-def getUserTasks():
+def getUserTasks() -> list:
     return json.load(open('user_tasks.json'))
 
 
-def getAppConfig():
+def getAppConfig() -> list:
     return json.load(open('utils.json'))['app_config'][0]

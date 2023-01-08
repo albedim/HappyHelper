@@ -1,25 +1,36 @@
 import asyncio
 import random
 
+import translators as ts
 from datetime import datetime
 from wikipedia import wikipedia
 from audio.extractor import say
-from main.utils import getContent, replaceChars, getWordsNumber
+from main.utils import subFirstWord, replaceChars, getWordsNumber, subLastWord
 from main.system_iterator import play, getVocalCommands, getVocalOutput, getAppConfig
 from packages.tasks import addTask, hasTasks, readTasks, deleteTasks
 from packages.timer import getLastTime, timer
+from packages.translator import translate, languages
 
 
-def getAction(text):
+def getAction(text) -> None:
     if getCalling(text):
+        # Hi
+        if getVocalCommands()['hi'] in text:
+            return say(getVocalOutput()['hi'])
+        # How are you
+        elif getVocalCommands()['how_are_you'] in text or getVocalCommands()['how_are_you1'] in text:
+            if random.randint(0, 100) > 50:
+                return say(getVocalOutput()['im_fine'])
+            else:
+                return say(getVocalOutput()['im_fine1'])
         # Play music
-        if getVocalCommands()['play'] in text:
-            song = getContent(text, 2)
+        elif getVocalCommands()['play'] in text:
+            song = subFirstWord(text, 2)
             play(title=song)
             return say(f'{song}, da youtube')
         # What is it or who are they
         elif replaceChars(getVocalCommands()['what_is']) in text or replaceChars(getVocalCommands()['who_is']) in text:
-            content = getContent(text, 3)
+            content = subFirstWord(text, 3)
             wikipedia.set_lang(getAppConfig()['language'])
             return say(wikipedia.summary(content.replace(" ", "_"), 3))
         # Current time
@@ -33,12 +44,14 @@ def getAction(text):
             return say(getVocalOutput()['you_are_welcome'])
         # Timer
         elif getVocalCommands()['request_timer'] in text:
-            lastTime = getLastTime(getContent(text, getWordsNumber(text) - 2))
+            time = subFirstWord(text, getWordsNumber(text) - 2)
+            lastTime = getLastTime(time)
+            say(time + getVocalOutput()['from_now'])
             asyncio.run(timer(lastTime))
         # Add a task
         elif (getVocalCommands()['add'] in text or getVocalCommands()['add1'] in text) and \
                 getVocalCommands()['tasks'] in text:
-            task = getContent(text, 4)
+            task = subFirstWord(text, 4)
             addTask(task)
             return say(getVocalOutput()['task_added'])
         # Get tasks
