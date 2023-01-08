@@ -1,7 +1,7 @@
-from extractor import say
-from recognizer import listen, toText
-from actions import getAction, getCalling, getStopRequest
-from system_iterator import destroyTasks, getVocalOutput
+from audio.extractor import say
+from audio.recognizer import listen, toText
+from main.actions import getAction, getCalling, getStopRequest
+from main.system_iterator import destroyTasks, getVocalOutput
 
 
 def execute():

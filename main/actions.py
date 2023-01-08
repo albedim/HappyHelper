@@ -1,24 +1,10 @@
-import translators as ts
+import asyncio
 
-from datetime import date, datetime
+from datetime import datetime
 from wikipedia import wikipedia
-from extractor import say
-from system_iterator import play, getVocalCommands, getVocalOutput, getAppConfig, replaceChars
-
-
-def getFirstWord(text):
-    return text.split(" ")[0]
-
-
-# Gets the content from a sentence
-def getContent(text, firstIndex):
-    words = text.split(" ")
-    content = ''
-    counter = 0
-    while counter < len(words):
-        content += words[counter] + " " if counter >= firstIndex else ''
-        counter += 1
-    return content
+from audio.extractor import say
+from main.utils import getContent, replaceChars, getWordsNumber
+from main.system_iterator import play, getVocalCommands, getVocalOutput, getAppConfig, getLastTime, timer
 
 
 def getAction(text):
@@ -41,8 +27,13 @@ def getAction(text):
     # Current date
     elif replaceChars(getVocalCommands()['current_date']) in text:
         return say(getVocalOutput()['date'] + datetime.now().strftime("%A, %d %B"))
+    # Thank you
     elif getVocalCommands()['thank_you'] in text:
         return say(getVocalOutput()['you_are_welcome'])
+    # Timer
+    elif getVocalCommands()['request_timer'] in text:
+        lastTime = getLastTime(getContent(text, getWordsNumber(text) - 2))
+        asyncio.run(timer(lastTime))
     else:
         return say(getVocalOutput()['not_understood'])
 

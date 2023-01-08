@@ -1,6 +1,6 @@
 import speech_recognition as sr
 
-from system_iterator import getAppConfig
+from main.system_iterator import getAppConfig
 
 recognizer = sr.Recognizer()
 
