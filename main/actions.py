@@ -9,13 +9,16 @@ from main.utils import subFirstWord, replaceChars, getWordsNumber, subLastWord
 from main.system_iterator import play, getVocalCommands, getVocalOutput, getAppConfig
 from packages.tasks import addTask, hasTasks, readTasks, deleteTasks
 from packages.timer import getLastTime, timer
-from packages.translator import translate, languages
+from packages.translator import translate
 
 
 def getAction(text) -> None:
     if getCalling(text):
+        # Bad words checker
+        if "*" in text:
+            return say(getVocalOutput()['no_bad_words'])
         # Hi
-        if getVocalCommands()['hi'] in text:
+        elif getVocalCommands()['hi'] in text:
             return say(getVocalOutput()['hi'])
         # How are you
         elif getVocalCommands()['how_are_you'] in text or getVocalCommands()['how_are_you1'] in text:
@@ -61,6 +64,7 @@ def getAction(text) -> None:
                 readTasks()
             else:
                 return say(getVocalOutput()['no_tasks_found'])
+        # Delete Tasks
         elif (getVocalCommands()['delete'] in text or getVocalCommands()['delete1'] in text) and  \
                 getVocalCommands()['tasks']:
             deleteTasks()
