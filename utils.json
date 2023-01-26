@@ -5,7 +5,7 @@
             "language": "it",
             "stop": "stop",
             "time_to_speak": 5,
-            "version": "1.2.0",
+            "version": "1.6.5",
             "history_versions": [
                 "1.0.0 - First version",
                 "1.0.5 - Time and date added",
@@ -19,7 +19,8 @@
                 "1.4.5 - Timer updated",
                 "1.5.0 - Feature: Translator added",
                 "1.5.5 - Bug fixing",
-                "1.6.0 - Code improvement"
+                "1.6.0 - Code improvement",
+                "1.6.5 - Bug fixing"
             ]
         }
     ],
@@ -54,6 +55,7 @@
             "tasks_removed": "i tuoi promemoria sono stati cancellati con successo",
             "hi": "ciao",
             "im_fine1": "non c'è male, mi piace la mia vita",
+            "translation_error": "non riesco a tradurre in questa lingua",
             "im_fine": "tutto bene, grazie per averlo chiesto!",
             "task_added": "promemoria aggiunto con successo",
             "timer_finished": "il tuo timer è finito",

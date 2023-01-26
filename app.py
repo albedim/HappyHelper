@@ -6,6 +6,7 @@ def execute() -> None:
     print("Listening...")
     audio = listen()
     text = toText(audio)
+    print(text)
     getAction(text)
 
 
